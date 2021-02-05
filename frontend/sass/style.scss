@@ -379,6 +379,10 @@ body{
     }
     .top-bar{
       background-color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
       .logo{
         display: table;
         img{
@@ -386,6 +390,42 @@ body{
           padding: 20px;
         }
       }
+        .dropdown{
+            position: relative;
+            .dropdown-button{
+                background-color: #1B1B19;
+                padding: 10px 20px;
+                border: none;
+                color: #fff;
+                font-weight: 700;
+                border-radius: 5px;
+                cursor: pointer;
+                display: block;
+                outline: none;
+            }
+            .dropdown-menu{
+                display: none;
+                background-color: #f4f4f2;
+                padding: 10px 0;
+                border-radius: 5px;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                border-radius: 5px;
+                min-width: 150px;
+                .dropdown-list{
+                    .dropdown-link{
+                        display: block;
+                        padding: 5px 20px;
+                        transition: 0.3s;
+                        color: #495464;
+                        &:hover{
+                            background-color: #e8e8e8;
+                        }
+                    }
+                }
+            }
+        }
     }
     .register-form{
       position: absolute;

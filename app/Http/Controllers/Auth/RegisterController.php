@@ -79,10 +79,10 @@ class RegisterController extends Controller
             'token' => $remember_token
         );
 
-        Mail::to($data['email']) -> send(new confirmMail($mailData));
+//        Mail::to($data['email']) -> send(new confirmMail($mailData));
 
 
-        return User::create([
+        return User::icreate([
             'username' => $data['username'],
             'email' => $data['email'],
             'first_name' => $data['first_name'],

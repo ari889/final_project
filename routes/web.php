@@ -32,8 +32,10 @@ Route::get('/referral', [App\Http\Controllers\HomeController::class, 'referral']
 Route::get('/pool', [App\Http\Controllers\HomeController::class, 'pool'])->name('dashboard.pool');
 Route::get('/email/{token}', [App\Http\Controllers\HomeController::class, 'confirmEmail'])->name('email.confirm');
 Route::post('/register/getallusers', [App\Http\Controllers\PackageController::class, 'allUsers'])->name('dashboard.users');
+Route::get('/register/payment', [App\Http\Controllers\HomeController::class, 'payment'])->name('register.payment');
 
 Route::get('locale/{locale}', function($locale){
-    Session::put('locale', $locale);
-    return redirect() -> back();
-});
+   Session::put('locale', $locale);
+   return redirect() -> back();
+}) -> name('locale');
+

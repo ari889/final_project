@@ -56,9 +56,16 @@
                                             <td>{{$data -> price}}</td>
                                             <td>{{$data -> circle_days}} Days</td>
                                             <td>- Days</td>
-                                            <td>@php
-                                                    $user = \App\Models\User::where( 'id', '=', $data -> referral_id)->first();
-                                                    @endphp {{$user->first_name}} {{$user -> last_name}}</td>
+                                            <td>
+                                                @php
+                                                    $user = \App\Models\User::find($data->referral_id);
+                                                    if(!empty($user)){
+                                                        echo $user -> first_name.' '.$user -> last_name;
+                                                    }else{
+                                                        echo 'Admin';
+                                                    }
+                                                @endphp
+                                            </td>
                                             <td>{{ \Carbon\Carbon::parse($data -> created_at)->diffForHumans() }}</td>
                                             <td>{{ucfirst($data -> status)}}</td>
                                         </tr>

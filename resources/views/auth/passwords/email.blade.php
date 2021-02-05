@@ -7,6 +7,13 @@
         <div class="register-left">
             <div class="top-bar">
                 <a href="https://mycryptopoolmirror.com/" class="logo"><img src="{{asset('frontend/images/logo.png')}}" alt=""></a>
+                <div class="dropdown">
+                    <button type="button" class="dropdown-button" data-target="lang">{{strtoupper(Session::get('locale'))}}</button>
+                    <ul class="dropdown-menu" id="lang">
+                        <li class="dropdown-list"><a href="{{route('locale', ['locale' => 'en'])}}" class="dropdown-link">English</a></li>
+                        <li class="dropdown-list"><a href="{{route('locale', ['locale' => 'bn'])}}" class="dropdown-link">Bangla</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="register-form">
                 <h1 class="heading">Forget password</h1>

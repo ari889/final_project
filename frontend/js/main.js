@@ -9,7 +9,7 @@
             let package_name = $(this).data('package_name');
             let referral_id = $(this).data('referral_id');
             $.ajax({
-               url: '/packages/create',
+               url: 'packages/create',
                 method: 'POST',
                 data: {'package_name' : package_name, 'referral_id' : referral_id},
                 success: function(data){
@@ -93,6 +93,14 @@
             $temp.remove();
             $(this).text('Copied');
             $(this).attr('disabled', true);
+        });
+
+        /**
+         * for dropdown menu
+         */
+        $(document).on('click', '.dropdown-button', function(){
+            let target = $(this).data('target');
+            $('#'+target).fadeToggle('fast');
         });
 
     });

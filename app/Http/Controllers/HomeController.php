@@ -183,6 +183,10 @@ class HomeController extends Controller
 
     }
 
+    /**
+     * @param $token
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function confirmEmail($token){
         $data = User::where('remember_token', $token) -> get() -> first();
         if($data -> mail_activation_status === 'pending'){
@@ -198,5 +202,54 @@ class HomeController extends Controller
             ]);
         }
 
+    }
+
+    /**
+     * get payment
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function payment(){
+        $data = array(
+            "name" => "ad",
+            "description" => "1 x ghg, 1 x DEWALT DCF899N-XJ Vridmomentskiftnyckel, 18V, Gul",
+            "pricing_type" => "fixed_price",
+            "local_price" => array(
+                "amount" => "0.01175",
+                "currency" => "ETH"
+            ),
+            "metadata" => array(
+                "order_id" => 95,
+            ),
+            "redirect_url" => "http://localhost/final_project/home",
+            "cancel_url" => "http://localhost/final_project/login"
+        );
+
+        $post = json_encode( $data );
+        $api_key = 'e6704d3a-9a8f-4a49-8710-f1c6d3ac8c47';
+
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, 'https://api.commerce.coinbase.com/charges/');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_POST, 1);
+
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+
+        $headers = array();
+        $headers[] = 'Content-Type: application/json';
+        $headers[] = 'X-Cc-Api-Key: ' . $api_key;
+        $headers[] = 'X-Cc-Version: 2018-03-22';
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        $result = curl_exec($ch);
+        if (curl_errno($ch)) {
+            echo 'Error:' . curl_error($ch);
+        }
+        curl_close($ch);
+
+        $result_de = json_decode( $result );
+
+        $re_url = $result_de->data->hosted_url;
+        return redirect()->intended($re_url);
     }
 }
