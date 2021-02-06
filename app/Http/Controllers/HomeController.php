@@ -32,6 +32,8 @@ class HomeController extends Controller
             -> join('user_packages', 'user_packages.user_id', '=', 'users.id') -> where('users.id', $id) -> get();
         $user = User::find($id);
         if($user->payment_status == 0){
+            return redirect()->route('register.payment');
+        }else if($user->payment_status == 1){
             return redirect()->route('payment.verify');
         }else{
             return view('home', [

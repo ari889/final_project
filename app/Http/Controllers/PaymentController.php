@@ -65,6 +65,9 @@ class PaymentController extends Controller
         $result_de = json_decode( $result );
 
         $re_url = $result_de->data->hosted_url;
+        $user_data = User::find(Auth::user()->id);
+        $user_data->payment_status = 1;
+        $user_data->save();
         return redirect()->intended($re_url);
     }
 
@@ -84,7 +87,7 @@ class PaymentController extends Controller
         if ( 'charge:confirmed' == $data['event']['type'] ) {
             $user_id = $event_data['metadata']['user_id'];
             $user = User::find( $user_id );
-            $user->payment_status = 1;
+            $user->payment_status = 2;
             $user->save();
         }
 
@@ -92,6 +95,11 @@ class PaymentController extends Controller
     }
 
     public function verifyPayment(){
-        return view('verify');
+        $user = User::find(Auth::user() -> id);
+        if($user->payment_status == 2){
+            return redirect('home');
+        }else{
+            return view('verify');
+        }
     }
 }

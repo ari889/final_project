@@ -25,6 +25,8 @@ class PoolController extends Controller
     public function pool(){
         $user = User::find(Auth::user()->id);
         if($user->payment_status == 0){
+            return redirect()->route('register.payment');
+        }else if($user->payment_status == 1){
             return redirect()->route('payment.verify');
         }else{
             return view('pool');

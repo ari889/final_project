@@ -25,6 +25,8 @@ class ProfileController extends Controller
     public function profile(){
         $user = User::find(Auth::user() -> id);
         if($user->payment_status == 0){
+            return redirect()->route('register.payment');
+        }else if($user->payment_status == 1){
             return redirect()->route('payment.verify');
         }else{
             return view('profile', [
@@ -39,16 +41,16 @@ class ProfileController extends Controller
      * @throws \Illuminate\Validation\ValidationException
      */
     public function passwordChange(Request $request){
-        $user = User::find($request -> user_id);
+        $user = User::find($request->user_id);
 
-        if(password_verify($request -> old_password, $user['password'])){
-            if($request -> new_password === $request -> confirm_password){
-                if($request -> old_password === $request -> new_password){
+        if(password_verify($request->old_password, $user['password'])){
+            if($request->new_password === $request -> confirm_password){
+                if($request->old_password === $request -> new_password){
                     return '<div class="alert alert-warning"><strong>Warning!</strong> Please try another password. <button class="close" data-dismiss="alert" type="button">&times;</button></div>';
                 }else{
-                    $user -> password = password_hash($request -> new_password, PASSWORD_DEFAULT);
-                    $user -> update();
-                    if($request -> is_login == false) {
+                    $user->password = password_hash($request -> new_password, PASSWORD_DEFAULT);
+                    $user->update();
+                    if($request->is_login == false) {
                         Auth::logout();
                         return route('login');
                     }else{
@@ -69,11 +71,11 @@ class ProfileController extends Controller
      * @return string
      */
     public function nameChange(Request $request){
-        $user = User::find(Auth::user() -> id);
+        $user = User::find(Auth::user()->id);
 
-        $user -> first_name = $request -> first_name;
-        $user -> last_name = $request -> last_name;
-        $user -> update();
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
+        $user->update();
 
         return '<div class="alert alert-success"><strong>Success!</strong> Data updated successful. <button class="close" data-dismiss="alert" type="button">&times;</button></div>';
     }
@@ -94,20 +96,20 @@ class ProfileController extends Controller
             'photo.required' => 'Please select an image before.'
         ]);
 
-        if($request -> hasFile('photo')){
-            $file = $request -> file('photo');
-            $unique_name = md5(time().rand()).'.'.$file -> getClientOriginalExtension();
-            $file -> move('media/profileImages', $unique_name);
+        if($request->hasFile('photo')){
+            $file = $request->file('photo');
+            $unique_name = md5(time().rand()).'.'.$file->getClientOriginalExtension();
+            $file->move('media/profileImages', $unique_name);
 
-            if(!empty($data -> photo) && file_exists('media/profileImages/'.$data -> photo)){
-                unlink('media/profileImages/'.$data -> photo);
+            if(!empty($data->photo) && file_exists('media/profileImages/'.$data->photo)){
+                unlink('media/profileImages/'.$data->photo);
             }
         }
 
-        $data -> photo = $unique_name;
-        $data -> update();
+        $data->photo = $unique_name;
+        $data->update();
 
-        return redirect() -> back() -> with('success', 'Images updated successful');
+        return redirect()->back()->with('success', 'Images updated successful');
 
     }
 }

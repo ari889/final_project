@@ -27,6 +27,8 @@ class HelpController extends Controller
     public function help(){
         $user = User::find(Auth::user()->id);
         if($user->payment_status == 0){
+            return redirect()->route('register.payment');
+        }else if($user->payment_status == 1){
             return redirect()->route('payment.verify');
         }else{
             return view('help');
@@ -46,14 +48,14 @@ class HelpController extends Controller
         ]);
 
         $data = array(
-            'name' => Auth::user() -> first_name.' '.Auth::user() -> last_name,
-            'email' => Auth::user() -> email,
-            'message' => $request -> message,
-            'subject' => $request -> subject
+            'name' => Auth::user()->first_name.' '.Auth::user() -> last_name,
+            'email' => Auth::user()->email,
+            'message' => $request->message,
+            'subject' => $request->subject
         );
 
         Mail::to('support@mycryptopoolmirror.com') -> send(new SendMail($data));
-        return back() -> with('success', 'Request send successfully');
+        return back()->with('success', 'Request send successfully');
     }
 
 }

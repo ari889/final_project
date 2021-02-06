@@ -13,3 +13,4 @@
 <link href="{{asset('css/icons.min.css')}}" rel="stylesheet" type="text/css" />
 <!-- App Css-->
 <link href="{{asset('css/app-dark.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
+{{--<link href="{{asset('frontend/css/all.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />--}}

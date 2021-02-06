@@ -9,7 +9,7 @@
             let package_name = $(this).data('package_name');
             let referral_id = $(this).data('referral_id');
             $.ajax({
-               url: 'packages/create',
+               url: '/packages/create',
                 method: 'POST',
                 data: {'package_name' : package_name, 'referral_id' : referral_id},
                 success: function(data){
@@ -40,7 +40,7 @@
                $('#change-password .message').html('<div class="alert alert-danger"><strong>Stop!</strong> New password must be 8 character. <button class="close" type="button" data-dismiss="alert">&times;</button></div>');
            }else{
                $.ajax({
-                   url: 'password/change',
+                   url: '/password/change',
                    method: 'POST',
                    data: {'user_id' : user_id, 'old_password' : old_password, 'new_password' : new_password, 'confirm_password' : confirm_password, 'is_login' : is_login},
                    success: function(data){

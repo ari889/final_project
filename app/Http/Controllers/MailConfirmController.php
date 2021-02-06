@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -24,10 +25,10 @@ class MailConfirmController extends Controller
      */
     public function confirmEmail($token){
         $data = User::where('remember_token', $token) -> get() -> first();
-        if($data -> mail_activation_status === 'pending'){
-            $data -> mail_activation_status = 'active';
-            $data -> email_verified_at = Carbon::now();
-            $data -> update();
+        if($data->mail_activation_status === 'pending'){
+            $data->mail_activation_status = 'active';
+            $data->email_verified_at = Carbon::now();
+            $data->update();
             return view('active', [
                 'status' => 'success'
             ]);

@@ -13,7 +13,7 @@ class UserController extends Controller
      * @return int
      */
     public function getAllUser(Request $request){
-        return User::all() -> count();
+        return User::all() -> count() + 300;
     }
 
     /**

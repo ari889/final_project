@@ -26,6 +26,8 @@ class ReferralController extends Controller
     public function referral(){
         $user = User::find(Auth::user() -> id);
         if($user->payment_status == 0){
+            return redirect()->route('register.payment');
+        }else if($user->payment_status == 1){
             return redirect()->route('payment.verify');
         }else{
             $referred_user = DB::table('user_packages')
