@@ -21,8 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="190f9dec-052f-42ce-be4b-0d2a5ea32541" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MailConfirmController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MailConfirmController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +178,7 @@
       <workItem from="1612470096660" duration="9006000" />
       <workItem from="1612484788401" duration="4502000" />
       <workItem from="1612541626006" duration="36251000" />
-      <workItem from="1612632795288" duration="8899000" />
+      <workItem from="1612632795288" duration="10575000" />
     </task>
     <servers />
   </component>
