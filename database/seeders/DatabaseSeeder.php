@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use GuzzleHttp\Promise\Create;
 use Illuminate\Database\Seeder;
-
+use Illuminate\Support\Facades\DB;
 class DatabaseSeeder extends Seeder
 {
     /**
