@@ -21,7 +21,7 @@
                     @lang('messages.'.Session::get('Wrong'))
                     @endif
                 </p>
-                @if(isset($referrel_data))
+                @if(Session::has('referral_id'))
                 <div class="alert">
                     <p class="email">@lang('messages.Sponsor Email'): <strong>{{$referrel_data -> email}}</strong></p>
                     <p class="username">@lang('messages.Sponsor Username'): <strong>{{$referrel_data -> username}}</strong></p>
