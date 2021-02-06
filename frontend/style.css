@@ -29,6 +29,41 @@ body {
   margin: auto;
 }
 
+.dropdown {
+  position: relative;
+}
+.dropdown .dropdown-button {
+  background-color: #1B1B19;
+  padding: 10px 20px;
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  outline: none;
+}
+.dropdown .dropdown-menu {
+  display: none;
+  background-color: #f4f4f2;
+  padding: 10px 0;
+  border-radius: 5px;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  border-radius: 5px;
+  min-width: 150px;
+}
+.dropdown .dropdown-menu .dropdown-list .dropdown-link {
+  display: block;
+  padding: 5px 20px;
+  transition: 0.3s;
+  color: #495464;
+}
+.dropdown .dropdown-menu .dropdown-list .dropdown-link:hover {
+  background-color: #e8e8e8;
+}
+
 /**
 * css for pool select
  */
@@ -39,6 +74,14 @@ body {
   background-repeat: no-repeat;
   min-height: 100vh;
   position: relative;
+}
+.pool-select .dropdown {
+  position: absolute !important;
+  top: 20px;
+  right: 20px;
+}
+.pool-select .dropdown .dropdown-button {
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 .pool-select .mid {
   padding: 50px 0;
@@ -136,7 +179,7 @@ body {
   }
 }
 .pool-select .mid .select-box-container .select-box:nth-child(2) .package-name-wrap {
-  left: -139px;
+  left: -155px;
 }
 @media only screen and (max-width: 545px) {
   .pool-select .mid .select-box-container .select-box:nth-child(2) .package-name-wrap {
@@ -147,7 +190,7 @@ body {
   }
 }
 .pool-select .mid .select-box-container .select-box:nth-child(2) .package-name-wrap .package-name {
-  padding: 20px 100px 100px;
+  padding: 12px 112px 100px;
   font-size: 23px;
   background: #FDC830;
   /* fallback for old browsers */
@@ -434,40 +477,6 @@ body {
 .register .register-left .top-bar .logo img {
   width: 80px;
   padding: 20px;
-}
-.register .register-left .top-bar .dropdown {
-  position: relative;
-}
-.register .register-left .top-bar .dropdown .dropdown-button {
-  background-color: #1B1B19;
-  padding: 10px 20px;
-  border: none;
-  color: #fff;
-  font-weight: 700;
-  border-radius: 5px;
-  cursor: pointer;
-  display: block;
-  outline: none;
-}
-.register .register-left .top-bar .dropdown .dropdown-menu {
-  display: none;
-  background-color: #f4f4f2;
-  padding: 10px 0;
-  border-radius: 5px;
-  position: absolute;
-  top: 100%;
-  right: 0;
-  border-radius: 5px;
-  min-width: 150px;
-}
-.register .register-left .top-bar .dropdown .dropdown-menu .dropdown-list .dropdown-link {
-  display: block;
-  padding: 5px 20px;
-  transition: 0.3s;
-  color: #495464;
-}
-.register .register-left .top-bar .dropdown .dropdown-menu .dropdown-list .dropdown-link:hover {
-  background-color: #e8e8e8;
 }
 .register .register-left .register-form {
   position: absolute;

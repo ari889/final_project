@@ -10,35 +10,35 @@
                 <li>
                     <a href="{{route('home')}}" class="waves-effect">
                         <i class="ri-dashboard-line"></i>
-                        <span>Dashboard</span>
+                        <span>@lang('messages.Dashboard')</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="{{route('dashboard.profile')}}" class="waves-effect">
                         <i class="fas fa-user"></i>
-                        <span>Profile</span>
+                        <span>@lang('messages.Profile')</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="{{route('dashboard.referral')}}" class="waves-effect">
                         <i class="fas fa-sync-alt"></i>
-                        <span>Referral</span>
+                        <span>@lang('messages.Referral')</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="{{route('dashboard.help')}}" class="waves-effect">
                         <i class="fas fa-info-circle"></i>
-                        <span>Help Desk</span>
+                        <span>@lang('messages.Help Desk')</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="{{route('dashboard.pool')}}" class="waves-effect">
                         <i class="fas fa-project-diagram"></i>
-                        <span>Pool</span>
+                        <span>@lang('messages.Pool')</span>
                     </a>
                 </li>
 

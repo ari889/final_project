@@ -58,34 +58,33 @@
                 </div>
             </div>
 
-{{--            <div class="dropdown d-none d-sm-inline-block">--}}
-{{--                <button type="button" class="btn header-item waves-effect"--}}
-{{--                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
-{{--                    <img class="" src="{{asset('images/flags/us.jpg')}}" alt="Header Language" height="16">--}}
-{{--                </button>--}}
-{{--                <div class="dropdown-menu dropdown-menu-right">--}}
+            <div class="dropdown d-none d-sm-inline-block">
+                <button type="button" class="btn header-item waves-effect"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    @if(Session::has('locale'))
+                        @if(Session::get('locale') === 'en')
+                            <img class="" src="{{asset('images/flags/us.jpg')}}" alt="Header Language" height="16">
+                        @else
+                            <img class="" src="{{asset('images/flags/french.jpg')}}" alt="Header Language" height="16">
+                        @endif
+                    @else
+                        <img class="" src="{{asset('images/flags/us.jpg')}}" alt="Header Language" height="16">
+                    @endif
+                </button>
+                <div class="dropdown-menu dropdown-menu-right">
 
-{{--                    <!-- item-->--}}
-{{--                    <a href="javascript:void(0);" class="dropdown-item notify-item">--}}
-{{--                        <img src="{{asset('images/flags/spain.jpg')}}" alt="user-image" class="mr-1" height="12"> <span class="align-middle">Spanish</span>--}}
-{{--                    </a>--}}
+                    <!-- item-->
+                    <a href="{{route('locale', ['locale' => 'en'])}}" class="dropdown-item notify-item">
+                        <img src="{{asset('images/flags/us.jpg')}}" alt="user-image" class="mr-1" height="12"> <span class="align-middle">English</span>
+                    </a>
 
-{{--                    <!-- item-->--}}
-{{--                    <a href="javascript:void(0);" class="dropdown-item notify-item">--}}
-{{--                        <img src="{{asset('images/flags/germany.jpg')}}" alt="user-image" class="mr-1" height="12"> <span class="align-middle">German</span>--}}
-{{--                    </a>--}}
+                    <!-- item-->
+                    <a href="{{route('locale', ['locale' => 'fr'])}}" class="dropdown-item notify-item">
+                        <img src="{{asset('images/flags/french.jpg')}}" alt="user-image" class="mr-1" height="12"> <span class="align-middle">French</span>
+                    </a>
 
-{{--                    <!-- item-->--}}
-{{--                    <a href="javascript:void(0);" class="dropdown-item notify-item">--}}
-{{--                        <img src="{{asset('images/flags/italy.jpg')}}" alt="user-image" class="mr-1" height="12"> <span class="align-middle">Italian</span>--}}
-{{--                    </a>--}}
-
-{{--                    <!-- item-->--}}
-{{--                    <a href="javascript:void(0);" class="dropdown-item notify-item">--}}
-{{--                        <img src="{{asset('images/flags/russia.jpg')}}" alt="user-image" class="mr-1" height="12"> <span class="align-middle">Russian</span>--}}
-{{--                    </a>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+                </div>
+            </div>
 
 {{--            <div class="dropdown d-none d-lg-inline-block ml-1">--}}
 {{--                <button type="button" class="btn header-item noti-icon waves-effect"--}}
@@ -159,7 +158,7 @@
                                 <h6 class="m-0"> Notifications </h6>
                             </div>
                             <div class="col-auto">
-                                <a href="#!" class="small"> View All</a>
+                                <a href="#!" class="small"> @lang('messages.View All')</a>
                             </div>
                         </div>
                     </div>
@@ -226,7 +225,7 @@
                     </div>
                     <div class="p-2 border-top">
                         <a class="btn btn-sm btn-link font-size-14 btn-block text-center" href="javascript:void(0)">
-                            <i class="mdi mdi-arrow-right-circle mr-1"></i> View More..
+                            <i class="mdi mdi-arrow-right-circle mr-1"></i> @lang('messages.View More')..
                         </a>
                     </div>
                 </div>
@@ -245,13 +244,12 @@
                 </button>
                 <div class="dropdown-menu dropdown-menu-right">
                     <!-- item-->
-                    <a class="dropdown-item" href="{{route('dashboard.profile')}}"><i class="ri-user-line align-middle mr-1"></i> Profile</a>
+                    <a class="dropdown-item" href="{{route('dashboard.profile')}}"><i class="ri-user-line align-middle mr-1"></i> @lang('messages.Profile')</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item text-danger" href="{{ route('logout') }}"
-                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                        <i class="ri-shut-down-line align-middle mr-1 text-danger"></i> Logout
-                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="dropdown-item text-danger"><i class="ri-shut-down-line align-middle mr-1 text-danger"></i> @lang('messages.Logout')</button>
+                    </form>
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf

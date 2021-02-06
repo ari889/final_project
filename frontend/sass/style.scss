@@ -29,6 +29,42 @@ body{
   width: 80%;
   margin: auto;
 }
+.dropdown{
+    position: relative;
+    .dropdown-button{
+        background-color: #1B1B19;
+        padding: 10px 20px;
+        border: none;
+        color: #fff;
+        font-weight: 700;
+        border-radius: 5px;
+        cursor: pointer;
+        display: block;
+        outline: none;
+    }
+    .dropdown-menu{
+        display: none;
+        background-color: #f4f4f2;
+        padding: 10px 0;
+        border-radius: 5px;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        border-radius: 5px;
+        min-width: 150px;
+        .dropdown-list{
+            .dropdown-link{
+                display: block;
+                padding: 5px 20px;
+                transition: 0.3s;
+                color: #495464;
+                &:hover{
+                    background-color: #e8e8e8;
+                }
+            }
+        }
+    }
+}
 
 /**
 * css for pool select
@@ -40,6 +76,14 @@ body{
   background-repeat: no-repeat;
   min-height: 100vh;
   position: relative;
+    .dropdown{
+        position: absolute !important;
+        top: 20px;
+        right: 20px;
+        .dropdown-button{
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+    }
   .mid{
     padding: 50px 0;
     max-width: 1250px;
@@ -115,7 +159,7 @@ body{
          */
         &:nth-child(2){
           .package-name-wrap{
-            left: -139px;
+            left: -155px;
             @media only screen and (max-width: 545px){
               top: -50px;
               left: 50%;
@@ -123,7 +167,7 @@ body{
               transform: translate(-50%, 0);
             }
             .package-name{
-              padding: 20px 100px 100px;
+              padding: 12px 112px 100px;
               font-size: 23px;
               background: #FDC830;  /* fallback for old browsers */
               background: -webkit-linear-gradient(to right, #C69320, #fcfeb6);  /* Chrome 10-25, Safari 5.1-6 */
@@ -390,42 +434,6 @@ body{
           padding: 20px;
         }
       }
-        .dropdown{
-            position: relative;
-            .dropdown-button{
-                background-color: #1B1B19;
-                padding: 10px 20px;
-                border: none;
-                color: #fff;
-                font-weight: 700;
-                border-radius: 5px;
-                cursor: pointer;
-                display: block;
-                outline: none;
-            }
-            .dropdown-menu{
-                display: none;
-                background-color: #f4f4f2;
-                padding: 10px 0;
-                border-radius: 5px;
-                position: absolute;
-                top: 100%;
-                right: 0;
-                border-radius: 5px;
-                min-width: 150px;
-                .dropdown-list{
-                    .dropdown-link{
-                        display: block;
-                        padding: 5px 20px;
-                        transition: 0.3s;
-                        color: #495464;
-                        &:hover{
-                            background-color: #e8e8e8;
-                        }
-                    }
-                }
-            }
-        }
     }
     .register-form{
       position: absolute;

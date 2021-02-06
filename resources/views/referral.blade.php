@@ -9,14 +9,6 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-flex align-items-center justify-content-between">
-
-{{--                        <div class="page-title-right">--}}
-{{--                            <ol class="breadcrumb m-0">--}}
-{{--                                <li class="breadcrumb-item"><a href="javascript: void(0);">Tables</a></li>--}}
-{{--                                <li class="breadcrumb-item active">Responsive Table</li>--}}
-{{--                            </ol>--}}
-{{--                        </div>--}}
-
                     </div>
                 </div>
             </div>
@@ -26,22 +18,22 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3>Your referral is</h3>
+                            <h3>@lang('messages.Your referral is')</h3>
                         </div>
                         <div class="card-body">
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control" placeholder="Referral link" aria-label="Recipient's username" aria-describedby="basic-addon2" value="{{route('packages.session', Auth::user() -> id)}}" id="copy-text">
                                 <div class="input-group-append">
-                                    <button type="button" class="btn btn-success" id="copy-link">Copy</button>
+                                    <button type="button" class="btn btn-success" id="copy-link">@lang('messages.Copy')</button>
                                 </div>
                             </div>
                         </div>
                         <table class="table table-borderless text-center">
                             <thead>
                             <tr>
-                                <th scope="col">Visit</th>
-                                <th scope="col">Registration</th>
-                                <th scope="col">Conversion</th>
+                                <th scope="col">@lang('messages.Visit')</th>
+                                <th scope="col">@lang('messages.Registration')</th>
+                                <th scope="col">@lang('messages.Conversion')</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -64,7 +56,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3>Referred user</h3>
+                            <h3>@lang('messages.Referred user')</h3>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -72,12 +64,12 @@
                                     <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Email</th>
-                                        <th scope="col">Package</th>
-                                        <th scope="col">Price</th>
-                                        <th scope="col">Total rewards</th>
-                                        <th scope="col">Registered at</th>
+                                        <th scope="col">@lang('messages.Name')</th>
+                                        <th scope="col">@lang('messages.Email')</th>
+                                        <th scope="col">@lang('messages.Package')</th>
+                                        <th scope="col">@lang('messages.Price')</th>
+                                        <th scope="col">@lang('messages.Total rewards')</th>
+                                        <th scope="col">@lang('messages.Registered at')</th>
                                     </tr>
                                     </thead>
                                     <tbody>

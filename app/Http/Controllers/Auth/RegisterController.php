@@ -54,12 +54,12 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'username' => ['required', 'string', 'max:20', 'unique:users'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'first_name' => ['required', 'string', 'max:255'],
-            'last_name' => ['required', 'string', 'max:255'],
-            'cell' => ['required', 'string', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'username'      => ['required', 'string', 'max:20', 'unique:users'],
+            'email'         => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'first_name'    => ['required', 'string', 'max:255'],
+            'last_name'     => ['required', 'string', 'max:255'],
+            'cell'          => ['required', 'string', 'max:255', 'unique:users'],
+            'password'      => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
 
@@ -79,10 +79,10 @@ class RegisterController extends Controller
             'token' => $remember_token
         );
 
-//        Mail::to($data['email']) -> send(new confirmMail($mailData));
+        Mail::to($data['email']) -> send(new confirmMail($mailData));
 
 
-        return User::icreate([
+        return User::create([
             'username' => $data['username'],
             'email' => $data['email'],
             'first_name' => $data['first_name'],

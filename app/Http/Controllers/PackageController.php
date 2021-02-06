@@ -19,7 +19,7 @@ class PackageController extends Controller
             $data -> visit = $data -> visit + 1;
             $data -> update();
         }
-        $request->session()->forget('referral_id');
+//        $request->session()->forget('referral_id');
 
         return redirect('https://mycryptopoolmirror.com/') -> with('referral_id', $id);
     }
@@ -36,6 +36,11 @@ class PackageController extends Controller
         }
     }
 
+    /**
+     * create package session
+     * @param Request $request
+     * @return string
+     */
     public function create(Request $request){
 //        Session::forget('package_name');
         $request->session()->forget('package_name');
@@ -43,13 +48,5 @@ class PackageController extends Controller
         $request -> session() -> put('referral_id', $request -> referral_id);
 
         return route('register');
-    }
-
-    /**
-     * @param Request $request
-     * @return int
-     */
-    public function allUsers(Request $request){
-        return User::all() -> count();
     }
 }

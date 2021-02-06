@@ -7,7 +7,7 @@
         allUsers();
         function allUsers(){
             $.ajax({
-                url: 'register/getallusers',
+                url: 'users/allUsers',
                 method: 'POST',
                 success: function(data){
                     $('#live-register').text(data);

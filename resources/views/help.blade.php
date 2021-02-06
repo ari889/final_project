@@ -9,14 +9,6 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-flex align-items-center justify-content-between">
-
-{{--                        <div class="page-title-right">--}}
-{{--                            <ol class="breadcrumb m-0">--}}
-{{--                                <li class="breadcrumb-item"><a href="javascript: void(0);">Tables</a></li>--}}
-{{--                                <li class="breadcrumb-item active">Responsive Table</li>--}}
-{{--                            </ol>--}}
-{{--                        </div>--}}
-
                     </div>
                 </div>
             </div>
@@ -26,7 +18,7 @@
                 <div class="col-6" style="margin: auto;">
                     <div class="card">
                         <div class="card-header">
-                            <h1 class="font-weight-bold text-white">Submit a request</h1>
+                            <h1 class="font-weight-bold text-white">@lang('messages.Submit a request')</h1>
                         </div>
                         <div class="card-body">
                             @if(Session::has('success'))
@@ -35,7 +27,7 @@
                             <form action="{{route('dashboard.createHelp')}}" method="post">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="">Subject</label>
+                                    <label for="">@lang('messages.Subject')</label>
                                     <input type="text" id="name" name="subject" class="form-control" value="{{old('subject')}}">
                                     @error('subject')
                                     <span style="color: #ec4646;font-weight: 700;margin-bottom: 20px;" role="alert">
@@ -44,7 +36,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="message">Message</label>
+                                    <label for="message">@lang('messages.Message')</label>
                                     <textarea id="message" cols="30" rows="10" name="message" class="form-control">{{old('message')}}</textarea>
                                     @error('message')
                                     <span style="color: #ec4646;font-weight: 700;margin-bottom: 20px;" role="alert">
@@ -52,7 +44,7 @@
                                     </span>
                                     @enderror
                                 </div>
-                                <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                                <button type="submit" class="btn btn-primary" name="submit">@lang('messages.Submit')</button>
                             </form>
                         </div>
                     </div>

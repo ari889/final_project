@@ -15,6 +15,7 @@ class VerifyCsrfToken extends Middleware
         '/packages/create', // not for package select
         '/password/change', // not for password change
         '/name/change', // not for change name
-        '/register/getallusers', // not for live user registration data
+        '/users/allUsers', // not for live user registration data
+        '/coinbase/webhook', // not for live user registration data
     ];
 }

@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->unsignedInteger('referral_id');
             $table->string('status') -> default('pending');
+            $table->string('payment_status') -> default(0);
             $table->string('mail_activation_status') -> default('pending');
             $table->unsignedInteger('visit') -> default(0);
             $table->unsignedInteger('registered') -> default(0);
