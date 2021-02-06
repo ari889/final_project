@@ -99,7 +99,7 @@ Route::get('locale/{locale}', function($locale){
 
 Route::get('lang/{lang}', function($lang){
     Session::put('locale', $lang);
-    return redirect()->route('register');
+    return redirect()->route('packages.index');
 });
 
 /**
